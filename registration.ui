@@ -6,21 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>750</width>
-    <height>750</height>
+    <width>800</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MedPlus - Registration</string>
+   <string>MedPlus - Patient Registration</string>
   </property>
   <property name="styleSheet">
    <string notr="true">QDialog {
     background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
-        stop:0 #f5f7fa, stop:1 #c3cfe2);
+        stop:0 #f8fafc, stop:1 #e2e8f0);
+    font-family: &quot;Segoe UI&quot;, &quot;Arial&quot;, sans-serif;
 }</string>
   </property>
-
-  <!-- Decorative Background Circle 1 -->
   <widget class="QFrame" name="frameCircle1">
    <property name="geometry">
     <rect>
@@ -33,19 +32,17 @@
    <property name="styleSheet">
     <string notr="true">QFrame {
     background: qradialgradient(cx:0.5, cy:0.5, radius:1,
-        fx:0.5, fy:0.5, stop:0 rgba(33, 147, 176, 0.2), stop:1 transparent);
+        fx:0.5, fy:0.5, stop:0 rgba(25, 118, 210, 0.1), stop:1 transparent);
     border-radius: 150px;
     border: none;
 }</string>
    </property>
   </widget>
-
-  <!-- Decorative Background Circle 2 -->
   <widget class="QFrame" name="frameCircle2">
    <property name="geometry">
     <rect>
-     <x>530</x>
-     <y>500</y>
+     <x>580</x>
+     <y>550</y>
      <width>350</width>
      <height>350</height>
     </rect>
@@ -53,143 +50,226 @@
    <property name="styleSheet">
     <string notr="true">QFrame {
     background: qradialgradient(cx:0.5, cy:0.5, radius:1,
-        fx:0.5, fy:0.5, stop:0 rgba(109, 213, 237, 0.2), stop:1 transparent);
+        fx:0.5, fy:0.5, stop:0 rgba(66, 165, 245, 0.1), stop:1 transparent);
     border-radius: 175px;
     border: none;
 }</string>
    </property>
   </widget>
-
-  <!-- Header Label -->
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>125</x>
+     <x>150</x>
      <y>40</y>
      <width>500</width>
-     <height>100</height>
+     <height>80</height>
     </rect>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>4</width>
-     <height>0</height>
-    </size>
    </property>
    <property name="styleSheet">
     <string notr="true">QLabel {
-    font-size: 36px;
-    font-weight: bold;
-    color: #ffffff;
-    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
-        stop:0 #1976d2, stop:0.5 #42a5f5, stop:1 #64b5f6);
-    padding: 20px 30px;
-    border-radius: 15px;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    letter-spacing: 2px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #0d47a1;
+    background: transparent;
+    padding: 15px 25px;
+    border-radius: 12px;
+    border: 2px solid #bbdefb;
     qproperty-alignment: AlignCenter;
+    letter-spacing: 1px;
 }</string>
    </property>
    <property name="text">
-    <string>📝 Registration Form</string>
+    <string>Patient Registration</string>
    </property>
   </widget>
-
-  <!-- Subtitle -->
   <widget class="QLabel" name="lblSubtitle">
    <property name="geometry">
     <rect>
-     <x>125</x>
-     <y>155</y>
+     <x>150</x>
+     <y>135</y>
      <width>500</width>
-     <height>35</height>
+     <height>30</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">QLabel {
     font-size: 16px;
-    color: #37474f;
+    color: #546e7a;
     background: transparent;
     qproperty-alignment: AlignCenter;
     font-weight: 500;
+    letter-spacing: 0.3px;
 }</string>
    </property>
    <property name="text">
-    <string>Create your MedPlus account to get started</string>
+    <string>Create your MedPlus healthcare account</string>
    </property>
   </widget>
-
-  <!-- Form Container Frame -->
   <widget class="QFrame" name="frameForm">
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>220</y>
-     <width>550</width>
-     <height>420</height>
+     <y>190</y>
+     <width>600</width>
+     <height>450</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">QFrame {
-    background-color: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    border: 2px solid rgba(25, 118, 210, 0.3);
+    background-color: rgba(255, 255, 255, 0.98);
+    border-radius: 16px;
+    border: 2px solid #e3f2fd;
 }</string>
    </property>
+   <widget class="QPushButton" name="loginButton">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>400</y>
+      <width>161</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1976d2;
+    background: transparent;
+    border: 2px solid #1976d2;
+    border-radius: 10px;
+    padding: 12px 24px;
+    letter-spacing: 0.5px;
+}
+QPushButton:hover {
+    background-color: #e3f2fd;
+    border-color: #0d47a1;
+    color: #0d47a1;
+}
+QPushButton:pressed {
+    background-color: #bbdefb;
+}</string>
+    </property>
+    <property name="text">
+     <string>Back to Login</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="cancelButton">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>400</y>
+      <width>131</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    font-size: 16px;
+    font-weight: 700;
+    color: #757575;
+    background: transparent;
+    border: 2px solid #bdbdbd;
+    border-radius: 10px;
+    padding: 12px 24px;
+    letter-spacing: 0.5px;
+}
+QPushButton:hover {
+    background-color: #f5f5f5;
+    border-color: #757575;
+    color: #616161;
+}
+QPushButton:pressed {
+    background-color: #e0e0e0;
+}</string>
+    </property>
+    <property name="text">
+     <string>Cancel</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="registerButton">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>400</y>
+      <width>171</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #1976d2, stop:1 #42a5f5);
+    border: none;
+    border-radius: 10px;
+    padding: 12px 24px;
+    letter-spacing: 0.5px;
+}
+QPushButton:hover {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #1565c0, stop:1 #1e88e5);
+}
+QPushButton:pressed {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #0d47a1, stop:1 #1565c0);
+}</string>
+    </property>
+    <property name="text">
+     <string>Create Account</string>
+    </property>
+   </widget>
   </widget>
-
-  <!-- Full Name Label -->
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
      <x>140</x>
-     <y>260</y>
+     <y>230</y>
      <width>150</width>
-     <height>35</height>
+     <height>30</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">QLabel {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     color: #1565c0;
     background: transparent;
-    padding: 4px;
+    padding: 4px 8px;
     letter-spacing: 0.5px;
 }</string>
    </property>
    <property name="text">
-    <string>👤 Full Name:</string>
+    <string>Full Name</string>
    </property>
   </widget>
-
-  <!-- Full Name Input -->
   <widget class="QLineEdit" name="fullNameLineEdit">
    <property name="geometry">
     <rect>
      <x>310</x>
-     <y>255</y>
-     <width>300</width>
-     <height>45</height>
+     <y>225</y>
+     <width>320</width>
+     <height>42</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">QLineEdit {
-    font-size: 15px;
-    color: #2c3e50;
+    font-size: 14px;
+    color: #37474f;
     padding: 10px 15px;
-    border: 2px solid #1976d2;
-    border-radius: 10px;
-    background-color: white;
+    border: 2px solid #90caf9;
+    border-radius: 8px;
+    background-color: #fafafa;
+    font-weight: 500;
 }
-
 QLineEdit:hover {
-    border: 2px solid #1565c0;
+    border: 2px solid #64b5f6;
     background-color: #f5f9ff;
 }
-
 QLineEdit:focus {
-    border: 2px solid #0d47a1;
+    border: 2px solid #1976d2;
     background-color: white;
 }</string>
    </property>
@@ -197,59 +277,54 @@ QLineEdit:focus {
     <string>Enter your full name</string>
    </property>
   </widget>
-
-  <!-- Username Label -->
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
      <x>140</x>
-     <y>325</y>
+     <y>290</y>
      <width>150</width>
-     <height>35</height>
+     <height>30</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">QLabel {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     color: #1565c0;
     background: transparent;
-    padding: 4px;
+    padding: 4px 8px;
     letter-spacing: 0.5px;
 }</string>
    </property>
    <property name="text">
-    <string>🆔 Username:</string>
+    <string>Username</string>
    </property>
   </widget>
-
-  <!-- Username Input -->
   <widget class="QLineEdit" name="usernameLineEdit">
    <property name="geometry">
     <rect>
      <x>310</x>
-     <y>320</y>
-     <width>300</width>
-     <height>45</height>
+     <y>285</y>
+     <width>320</width>
+     <height>42</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">QLineEdit {
-    font-size: 15px;
-    color: #2c3e50;
+    font-size: 14px;
+    color: #37474f;
     padding: 10px 15px;
-    border: 2px solid #1976d2;
-    border-radius: 10px;
-    background-color: white;
+    border: 2px solid #90caf9;
+    border-radius: 8px;
+    background-color: #fafafa;
+    font-weight: 500;
 }
-
 QLineEdit:hover {
-    border: 2px solid #1565c0;
+    border: 2px solid #64b5f6;
     background-color: #f5f9ff;
 }
-
 QLineEdit:focus {
-    border: 2px solid #0d47a1;
+    border: 2px solid #1976d2;
     background-color: white;
 }</string>
    </property>
@@ -257,185 +332,170 @@ QLineEdit:focus {
     <string>Choose a username</string>
    </property>
   </widget>
-
-  <!-- Password Label -->
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
      <x>140</x>
-     <y>390</y>
+     <y>350</y>
      <width>150</width>
-     <height>35</height>
+     <height>30</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">QLabel {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     color: #1565c0;
     background: transparent;
-    padding: 4px;
+    padding: 4px 8px;
     letter-spacing: 0.5px;
 }</string>
    </property>
    <property name="text">
-    <string>🔒 Password:</string>
+    <string>Password</string>
    </property>
   </widget>
-
-  <!-- Password Input -->
   <widget class="QLineEdit" name="passwordLineEdit">
    <property name="geometry">
     <rect>
      <x>310</x>
-     <y>385</y>
-     <width>300</width>
-     <height>45</height>
+     <y>345</y>
+     <width>320</width>
+     <height>42</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">QLineEdit {
-    font-size: 15px;
-    color: #2c3e50;
+    font-size: 14px;
+    color: #37474f;
     padding: 10px 15px;
-    border: 2px solid #1976d2;
-    border-radius: 10px;
-    background-color: white;
+    border: 2px solid #90caf9;
+    border-radius: 8px;
+    background-color: #fafafa;
+    font-weight: 500;
 }
-
 QLineEdit:hover {
-    border: 2px solid #1565c0;
+    border: 2px solid #64b5f6;
     background-color: #f5f9ff;
 }
-
 QLineEdit:focus {
-    border: 2px solid #0d47a1;
+    border: 2px solid #1976d2;
     background-color: white;
 }</string>
    </property>
    <property name="echoMode">
-    <enum>QLineEdit::Password</enum>
+    <enum>QLineEdit::EchoMode::Password</enum>
    </property>
    <property name="placeholderText">
     <string>Create a strong password</string>
    </property>
   </widget>
-
-  <!-- Confirm Password Label -->
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
      <x>140</x>
-     <y>455</y>
+     <y>410</y>
      <width>150</width>
-     <height>35</height>
+     <height>30</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">QLabel {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     color: #1565c0;
     background: transparent;
-    padding: 4px;
+    padding: 4px 8px;
     letter-spacing: 0.5px;
 }</string>
    </property>
    <property name="text">
-    <string>🔐 Confirm:</string>
+    <string>Confirm Password</string>
    </property>
   </widget>
-
-  <!-- Confirm Password Input -->
   <widget class="QLineEdit" name="confirmPasswordLineEdit">
    <property name="geometry">
     <rect>
      <x>310</x>
-     <y>450</y>
-     <width>300</width>
-     <height>45</height>
+     <y>405</y>
+     <width>320</width>
+     <height>42</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">QLineEdit {
-    font-size: 15px;
-    color: #2c3e50;
+    font-size: 14px;
+    color: #37474f;
     padding: 10px 15px;
-    border: 2px solid #1976d2;
-    border-radius: 10px;
-    background-color: white;
+    border: 2px solid #90caf9;
+    border-radius: 8px;
+    background-color: #fafafa;
+    font-weight: 500;
 }
-
 QLineEdit:hover {
-    border: 2px solid #1565c0;
+    border: 2px solid #64b5f6;
     background-color: #f5f9ff;
 }
-
 QLineEdit:focus {
-    border: 2px solid #0d47a1;
+    border: 2px solid #1976d2;
     background-color: white;
 }</string>
    </property>
    <property name="echoMode">
-    <enum>QLineEdit::Password</enum>
+    <enum>QLineEdit::EchoMode::Password</enum>
    </property>
    <property name="placeholderText">
-    <string>Re-enter password</string>
+    <string>Re-enter your password</string>
    </property>
   </widget>
-
-  <!-- Email Label -->
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
      <x>140</x>
-     <y>520</y>
+     <y>470</y>
      <width>150</width>
-     <height>35</height>
+     <height>30</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">QLabel {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     color: #1565c0;
     background: transparent;
-    padding: 4px;
+    padding: 4px 8px;
     letter-spacing: 0.5px;
 }</string>
    </property>
    <property name="text">
-    <string>📧 Email:</string>
+    <string>Email Address</string>
    </property>
   </widget>
-
-  <!-- Email Input -->
   <widget class="QLineEdit" name="emailLineEdit">
    <property name="geometry">
     <rect>
      <x>310</x>
-     <y>515</y>
-     <width>300</width>
-     <height>45</height>
+     <y>465</y>
+     <width>320</width>
+     <height>42</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">QLineEdit {
-    font-size: 15px;
-    color: #2c3e50;
+    font-size: 14px;
+    color: #37474f;
     padding: 10px 15px;
-    border: 2px solid #1976d2;
-    border-radius: 10px;
-    background-color: white;
+    border: 2px solid #90caf9;
+    border-radius: 8px;
+    background-color: #fafafa;
+    font-weight: 500;
 }
-
 QLineEdit:hover {
-    border: 2px solid #1565c0;
+    border: 2px solid #64b5f6;
     background-color: #f5f9ff;
 }
-
 QLineEdit:focus {
-    border: 2px solid #0d47a1;
+    border: 2px solid #1976d2;
     background-color: white;
 }</string>
    </property>
@@ -443,59 +503,54 @@ QLineEdit:focus {
     <string>your.email@example.com</string>
    </property>
   </widget>
-
-  <!-- Phone Number Label -->
   <widget class="QLabel" name="lblPhone">
    <property name="geometry">
     <rect>
      <x>140</x>
-     <y>585</y>
+     <y>530</y>
      <width>150</width>
-     <height>35</height>
+     <height>30</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">QLabel {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     color: #1565c0;
     background: transparent;
-    padding: 4px;
+    padding: 4px 8px;
     letter-spacing: 0.5px;
 }</string>
    </property>
    <property name="text">
-    <string>📱 Phone:</string>
+    <string>Phone Number</string>
    </property>
   </widget>
-
-  <!-- Phone Input -->
   <widget class="QLineEdit" name="phoneLineEdit">
    <property name="geometry">
     <rect>
      <x>310</x>
-     <y>580</y>
-     <width>300</width>
-     <height>45</height>
+     <y>525</y>
+     <width>320</width>
+     <height>42</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">QLineEdit {
-    font-size: 15px;
-    color: #2c3e50;
+    font-size: 14px;
+    color: #37474f;
     padding: 10px 15px;
-    border: 2px solid #1976d2;
-    border-radius: 10px;
-    background-color: white;
+    border: 2px solid #90caf9;
+    border-radius: 8px;
+    background-color: #fafafa;
+    font-weight: 500;
 }
-
 QLineEdit:hover {
-    border: 2px solid #1565c0;
+    border: 2px solid #64b5f6;
     background-color: #f5f9ff;
 }
-
 QLineEdit:focus {
-    border: 2px solid #0d47a1;
+    border: 2px solid #1976d2;
     background-color: white;
 }</string>
    </property>
@@ -503,114 +558,28 @@ QLineEdit:focus {
     <string>+91 XXXXX XXXXX</string>
    </property>
   </widget>
-
-  <!-- Register Button -->
-  <widget class="QPushButton" name="registerButton">
+  <widget class="QLabel" name="lblFooter">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>665</y>
-     <width>140</width>
-     <height>55</height>
+     <x>150</x>
+     <y>670</y>
+     <width>500</width>
+     <height>25</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">QPushButton {
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
-        stop:0 #1976d2, stop:1 #42a5f5);
-    border: none;
-    border-radius: 12px;
-    padding: 12px 24px;
-}
-
-QPushButton:hover {
-    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
-        stop:0 #1565c0, stop:1 #1976d2);
-}
-
-QPushButton:pressed {
-    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
-        stop:0 #0d47a1, stop:1 #1565c0);
-}</string>
-   </property>
-   <property name="text">
-    <string>✓ Register</string>
-   </property>
-  </widget>
-
-  <!-- Login Button -->
-  <widget class="QPushButton" name="loginButton">
-   <property name="geometry">
-    <rect>
-     <x>305</x>
-     <y>665</y>
-     <width>140</width>
-     <height>55</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton {
-    font-size: 18px;
-    font-weight: bold;
-    color: #1976d2;
+    <string notr="true">QLabel {
+    font-size: 12px;
+    color: #78909c;
     background: transparent;
-    border: 2px solid #1976d2;
-    border-radius: 12px;
-    padding: 12px 24px;
-}
-
-QPushButton:hover {
-    background-color: #e3f2fd;
-    border-color: #0d47a1;
-}
-
-QPushButton:pressed {
-    background-color: #bbdefb;
+    qproperty-alignment: AlignCenter;
+    font-weight: 500;
 }</string>
    </property>
    <property name="text">
-    <string>← Login</string>
+    <string>Your information is secure and confidential</string>
    </property>
   </widget>
-
-  <!-- Cancel Button -->
-  <widget class="QPushButton" name="cancelButton">
-   <property name="geometry">
-    <rect>
-     <x>470</x>
-     <y>665</y>
-     <width>140</width>
-     <height>55</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton {
-    font-size: 18px;
-    font-weight: bold;
-    color: #757575;
-    background: transparent;
-    border: 2px solid #bdbdbd;
-    border-radius: 12px;
-    padding: 12px 24px;
-}
-
-QPushButton:hover {
-    background-color: #f5f5f5;
-    border-color: #757575;
-}
-
-QPushButton:pressed {
-    background-color: #e0e0e0;
-}</string>
-   </property>
-   <property name="text">
-    <string>✗ Cancel</string>
-   </property>
-  </widget>
-
  </widget>
  <resources/>
  <connections/>

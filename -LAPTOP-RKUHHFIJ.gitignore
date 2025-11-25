@@ -1,0 +1,28 @@
+# Qt Creator specific files
+*.pro.user
+*.pro.user.*
+*.qmake.stash
+*.qrc.dep
+
+# Build folders
+build-*/
+cmake-build-*/
+
+# Binary files
+*.o
+*.obj
+*.dll
+*.exe
+*.so
+*.dylib
+
+# Temporary files
+*.log
+*.cache
+*.autosave
+*.tmp
+*.bak
+
+# VSCode or other IDEs
+.vscode/
+.idea/

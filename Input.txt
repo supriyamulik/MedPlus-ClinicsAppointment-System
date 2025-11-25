@@ -1,0 +1,24 @@
+Input:
+
+Rank: 10,800
+
+Percentile: 95.23
+
+Category: OPEN
+
+City: Pune
+
+Branch: Computer Engineering (or "Computer")
+
+
+Rank: 45,200
+
+Percentile: 85.56
+
+Category: OPEN
+
+City: Mumbai
+
+Branch: IT
+
+Limit: 50

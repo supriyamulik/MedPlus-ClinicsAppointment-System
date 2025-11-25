@@ -6,12 +6,9 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QMessageBox>
-#include <QDebug>
-#include <QDate>
 #include <QTimer>
-#include <QComboBox>
-#include <QPushButton>
-#include <QDateEdit>
+#include <QDebug>
+#include <QCalendarWidget>
 
 namespace Ui {
 class BookAppointment;
@@ -37,23 +34,26 @@ private slots:
 
 private:
     Ui::BookAppointment *ui;
+    QSqlDatabase db;
     int m_patientId;
     QTimer *m_refreshTimer;
     bool m_isLoading;
+    QCalendarWidget *m_calendar;
 
     void setupUI();
     void setupDatabase();
+    void setupCalendar();
     void loadDoctors();
     void loadAvailableSlots();
     void clearSlots();
     bool validateBooking();
+    bool checkSlotCapacity(int doctorId, const QDate &date, int slotId);
     bool checkTimeConflict(int doctorId, const QDate &date, int slotId);
     bool checkPatientConflict(const QDate &date, int slotId);
-    bool checkSlotCapacity(int doctorId, const QDate &date, int slotId);
     void showLoadingState(bool loading);
     void logBookingActivity(const QString &activity);
-
-    QSqlDatabase db;
+    QMessageBox* createStyledMessageBox(const QString &title, const QString &text,
+                                        QMessageBox::StandardButtons buttons = QMessageBox::Ok);
 };
 
 #endif // BOOKAPPOINTMENT_H

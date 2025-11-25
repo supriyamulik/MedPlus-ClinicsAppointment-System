@@ -17,11 +17,12 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>MedPlus - Dashboard</string>
+   <string>MedPlus - Healthcare Dashboard</string>
   </property>
   <property name="styleSheet">
    <string notr="true">QMainWindow {
-    background-color: #f5f7fa;
+    background-color: #f8fafc;
+    font-family: &quot;Segoe UI&quot;, &quot;Arial&quot;, sans-serif;
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -58,25 +59,26 @@
       <property name="styleSheet">
        <string notr="true">QFrame {
     background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
-        stop:0 #1e3c72, stop:1 #2a5298);
+        stop:0 #0d47a1, stop:0.7 #1565c0, stop:1 #1976d2);
     border: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
 }</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
        <property name="spacing">
-        <number>15</number>
+        <number>12</number>
        </property>
        <property name="leftMargin">
         <number>15</number>
        </property>
        <property name="topMargin">
-        <number>20</number>
+        <number>25</number>
        </property>
        <property name="rightMargin">
         <number>15</number>
        </property>
        <property name="bottomMargin">
-        <number>20</number>
+        <number>25</number>
        </property>
        <item>
         <widget class="QLabel" name="lblLogo">
@@ -94,10 +96,11 @@
          </property>
          <property name="styleSheet">
           <string notr="true">QLabel {
-    font-size: 48px;
+    font-size: 52px;
     color: white;
     background: transparent;
     qproperty-alignment: AlignCenter;
+    font-weight: bold;
 }</string>
          </property>
          <property name="text">
@@ -110,23 +113,24 @@
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>35</height>
+           <height>40</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
            <width>16777215</width>
-           <height>35</height>
+           <height>40</height>
           </size>
          </property>
          <property name="styleSheet">
           <string notr="true">QLabel {
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 26px;
+    font-weight: 800;
     color: white;
     background: transparent;
     qproperty-alignment: AlignCenter;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }</string>
          </property>
          <property name="text">
@@ -139,22 +143,23 @@
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>20</height>
+           <height>25</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
            <width>16777215</width>
-           <height>20</height>
+           <height>25</height>
           </size>
          </property>
          <property name="styleSheet">
           <string notr="true">QLabel {
-    font-size: 11px;
-    color: rgba(255, 255, 255, 0.8);
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.85);
     background: transparent;
     qproperty-alignment: AlignCenter;
-    font-style: italic;
+    font-weight: 500;
+    letter-spacing: 0.8px;
 }</string>
          </property>
          <property name="text">
@@ -178,27 +183,28 @@
          </property>
          <property name="styleSheet">
           <string notr="true">QFrame {
-    background-color: rgba(255, 255, 255, 0.3);
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 transparent, stop:0.3 rgba(255, 255, 255, 0.4), stop:0.7 rgba(255, 255, 255, 0.4), stop:1 transparent);
     border: none;
 }</string>
          </property>
          <property name="frameShape">
-          <enum>QFrame::HLine</enum>
+          <enum>QFrame::Shape::HLine</enum>
          </property>
          <property name="frameShadow">
-          <enum>QFrame::Sunken</enum>
+          <enum>QFrame::Shadow::Sunken</enum>
          </property>
         </widget>
        </item>
        <item>
         <spacer name="verticalSpacer_1">
          <property name="orientation">
-          <enum>Qt::Vertical</enum>
+          <enum>Qt::Orientation::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>10</height>
+           <height>15</height>
           </size>
          </property>
         </spacer>
@@ -208,33 +214,40 @@
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>50</height>
+           <height>52</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
            <width>16777215</width>
-           <height>50</height>
+           <height>52</height>
           </size>
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
-    background-color: rgba(255, 255, 255, 0.12);
+    background-color: rgba(255, 255, 255, 0.15);
     color: white;
     font-size: 14px;
-    font-weight: 600;
-    border: 1.5px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    padding: 8px 15px;
+    font-weight: 700;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    padding: 12px 18px;
     text-align: left;
+    letter-spacing: 0.5px;
 }
 QPushButton:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.35);
+    background-color: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.4);
     transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 QPushButton:pressed {
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(0px);
+}
+QPushButton:checked {
+    background-color: rgba(255, 255, 255, 0.35);
+    border-color: rgba(255, 255, 255, 0.6);
 }</string>
          </property>
          <property name="text">
@@ -247,32 +260,36 @@ QPushButton:pressed {
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>50</height>
+           <height>52</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
            <width>16777215</width>
-           <height>50</height>
+           <height>52</height>
           </size>
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
-    background-color: rgba(255, 255, 255, 0.12);
+    background-color: rgba(255, 255, 255, 0.15);
     color: white;
     font-size: 14px;
-    font-weight: 600;
-    border: 1.5px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    padding: 8px 15px;
+    font-weight: 700;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    padding: 12px 18px;
     text-align: left;
+    letter-spacing: 0.5px;
 }
 QPushButton:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.35);
+    background-color: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 QPushButton:pressed {
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(0px);
 }</string>
          </property>
          <property name="text">
@@ -285,32 +302,36 @@ QPushButton:pressed {
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>50</height>
+           <height>52</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
            <width>16777215</width>
-           <height>50</height>
+           <height>52</height>
           </size>
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
-    background-color: rgba(255, 255, 255, 0.12);
+    background-color: rgba(255, 255, 255, 0.15);
     color: white;
     font-size: 14px;
-    font-weight: 600;
-    border: 1.5px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    padding: 8px 15px;
+    font-weight: 700;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    padding: 12px 18px;
     text-align: left;
+    letter-spacing: 0.5px;
 }
 QPushButton:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.35);
+    background-color: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 QPushButton:pressed {
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(0px);
 }</string>
          </property>
          <property name="text">
@@ -323,32 +344,36 @@ QPushButton:pressed {
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>50</height>
+           <height>52</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
            <width>16777215</width>
-           <height>50</height>
+           <height>52</height>
           </size>
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
-    background-color: rgba(255, 255, 255, 0.12);
+    background-color: rgba(255, 255, 255, 0.15);
     color: white;
     font-size: 14px;
-    font-weight: 600;
-    border: 1.5px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    padding: 8px 15px;
+    font-weight: 700;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    padding: 12px 18px;
     text-align: left;
+    letter-spacing: 0.5px;
 }
 QPushButton:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.35);
+    background-color: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 QPushButton:pressed {
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(0px);
 }</string>
          </property>
          <property name="text">
@@ -361,32 +386,36 @@ QPushButton:pressed {
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>50</height>
+           <height>52</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
            <width>16777215</width>
-           <height>50</height>
+           <height>52</height>
           </size>
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
-    background-color: rgba(255, 255, 255, 0.12);
+    background-color: rgba(255, 255, 255, 0.15);
     color: white;
     font-size: 14px;
-    font-weight: 600;
-    border: 1.5px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    padding: 8px 15px;
+    font-weight: 700;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    padding: 12px 18px;
     text-align: left;
+    letter-spacing: 0.5px;
 }
 QPushButton:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.35);
+    background-color: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 QPushButton:pressed {
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(0px);
 }</string>
          </property>
          <property name="text">
@@ -399,32 +428,36 @@ QPushButton:pressed {
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>50</height>
+           <height>52</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
            <width>16777215</width>
-           <height>50</height>
+           <height>52</height>
           </size>
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
-    background-color: rgba(255, 255, 255, 0.12);
+    background-color: rgba(255, 255, 255, 0.15);
     color: white;
     font-size: 14px;
-    font-weight: 600;
-    border: 1.5px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    padding: 8px 15px;
+    font-weight: 700;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    padding: 12px 18px;
     text-align: left;
+    letter-spacing: 0.5px;
 }
 QPushButton:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.35);
+    background-color: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 QPushButton:pressed {
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(0px);
 }</string>
          </property>
          <property name="text">
@@ -437,32 +470,36 @@ QPushButton:pressed {
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>50</height>
+           <height>52</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
            <width>16777215</width>
-           <height>50</height>
+           <height>52</height>
           </size>
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
-    background-color: rgba(255, 255, 255, 0.12);
+    background-color: rgba(255, 255, 255, 0.15);
     color: white;
     font-size: 14px;
-    font-weight: 600;
-    border: 1.5px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    padding: 8px 15px;
+    font-weight: 700;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+    padding: 12px 18px;
     text-align: left;
+    letter-spacing: 0.5px;
 }
 QPushButton:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.35);
+    background-color: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 QPushButton:pressed {
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(0px);
 }</string>
          </property>
          <property name="text">
@@ -473,12 +510,12 @@ QPushButton:pressed {
        <item>
         <spacer name="verticalSpacer_2">
          <property name="orientation">
-          <enum>Qt::Vertical</enum>
+          <enum>Qt::Orientation::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>30</height>
+           <height>40</height>
           </size>
          </property>
         </spacer>
@@ -499,15 +536,16 @@ QPushButton:pressed {
          </property>
          <property name="styleSheet">
           <string notr="true">QFrame {
-    background-color: rgba(255, 255, 255, 0.3);
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 transparent, stop:0.3 rgba(255, 255, 255, 0.4), stop:0.7 rgba(255, 255, 255, 0.4), stop:1 transparent);
     border: none;
 }</string>
          </property>
          <property name="frameShape">
-          <enum>QFrame::HLine</enum>
+          <enum>QFrame::Shape::HLine</enum>
          </property>
          <property name="frameShadow">
-          <enum>QFrame::Sunken</enum>
+          <enum>QFrame::Shadow::Sunken</enum>
          </property>
         </widget>
        </item>
@@ -516,31 +554,35 @@ QPushButton:pressed {
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>50</height>
+           <height>52</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
            <width>16777215</width>
-           <height>50</height>
+           <height>52</height>
           </size>
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
-    background-color: rgba(244, 67, 54, 0.8);
+    background-color: rgba(244, 67, 54, 0.9);
     color: white;
     font-size: 14px;
-    font-weight: 600;
-    border: 1.5px solid rgba(198, 40, 40, 0.5);
-    border-radius: 8px;
-    padding: 8px 15px;
+    font-weight: 700;
+    border: 2px solid rgba(198, 40, 40, 0.7);
+    border-radius: 10px;
+    padding: 12px 18px;
+    letter-spacing: 0.5px;
 }
 QPushButton:hover {
-    background-color: rgba(244, 67, 54, 0.9);
-    border-color: rgba(198, 40, 40, 0.7);
+    background-color: rgba(244, 67, 54, 1);
+    border-color: rgba(198, 40, 40, 0.9);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3);
 }
 QPushButton:pressed {
-    background-color: rgba(198, 40, 40, 0.9);
+    background-color: rgba(198, 40, 40, 1);
+    transform: translateY(0px);
 }</string>
          </property>
          <property name="text">
@@ -551,12 +593,12 @@ QPushButton:pressed {
        <item>
         <spacer name="verticalSpacer_3">
          <property name="orientation">
-          <enum>Qt::Vertical</enum>
+          <enum>Qt::Orientation::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>10</height>
+           <height>15</height>
           </size>
          </property>
         </spacer>
@@ -566,21 +608,23 @@ QPushButton:pressed {
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>35</height>
+           <height>40</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
            <width>16777215</width>
-           <height>35</height>
+           <height>40</height>
           </size>
          </property>
          <property name="styleSheet">
           <string notr="true">QLabel {
-    font-size: 10px;
-    color: rgba(255, 255, 255, 0.5);
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.7);
     background: transparent;
     qproperty-alignment: AlignCenter;
+    font-weight: 500;
+    line-height: 1.4;
 }</string>
          </property>
          <property name="text">
@@ -596,7 +640,7 @@ v1.0.0</string>
      <widget class="QFrame" name="frameMainContent">
       <property name="styleSheet">
        <string notr="true">QFrame {
-    background-color: #f5f7fa;
+    background-color: #f8fafc;
     border: none;
 }</string>
       </property>
@@ -621,51 +665,53 @@ v1.0.0</string>
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>80</height>
+           <height>85</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
            <width>16777215</width>
-           <height>80</height>
+           <height>85</height>
           </size>
          </property>
          <property name="styleSheet">
           <string notr="true">QFrame {
     background-color: white;
     border: none;
-    border-bottom: 2px solid #e0e0e0;
+    border-bottom: 2px solid #e3e8f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }</string>
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_2">
           <property name="spacing">
-           <number>20</number>
+           <number>25</number>
           </property>
           <property name="leftMargin">
            <number>30</number>
           </property>
           <property name="topMargin">
-           <number>10</number>
+           <number>12</number>
           </property>
           <property name="rightMargin">
            <number>30</number>
           </property>
           <property name="bottomMargin">
-           <number>10</number>
+           <number>12</number>
           </property>
           <item>
            <layout class="QVBoxLayout" name="verticalLayout_3">
             <property name="spacing">
-             <number>5</number>
+             <number>6</number>
             </property>
             <item>
              <widget class="QLabel" name="lblWelcome">
               <property name="styleSheet">
                <string notr="true">QLabel {
-    font-size: 24px;
-    font-weight: bold;
-    color: #1e3c72;
+    font-size: 26px;
+    font-weight: 800;
+    color: #0d47a1;
     background: transparent;
+    letter-spacing: 0.5px;
 }</string>
               </property>
               <property name="text">
@@ -677,9 +723,11 @@ v1.0.0</string>
              <widget class="QLabel" name="lblDateTime">
               <property name="styleSheet">
                <string notr="true">QLabel {
-    font-size: 13px;
-    color: #757575;
+    font-size: 14px;
+    color: #64748b;
     background: transparent;
+    font-weight: 500;
+    letter-spacing: 0.3px;
 }</string>
               </property>
               <property name="text">
@@ -692,7 +740,7 @@ v1.0.0</string>
           <item>
            <spacer name="horizontalSpacer">
             <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+             <enum>Qt::Orientation::Horizontal</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
@@ -703,62 +751,90 @@ v1.0.0</string>
            </spacer>
           </item>
           <item>
+           <widget class="QPushButton" name="btnLogout">
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #d32f2f;
+}
+
+QPushButton:pressed {
+    background-color: #b71c1c;
+}</string>
+            </property>
+            <property name="text">
+             <string>Logout</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QFrame" name="frameUserBadge">
             <property name="minimumSize">
              <size>
-              <width>180</width>
-              <height>40</height>
+              <width>150</width>
+              <height>45</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>200</width>
-              <height>40</height>
+              <width>210</width>
+              <height>45</height>
              </size>
             </property>
             <property name="styleSheet">
              <string notr="true">QFrame {
-    background-color: #e3f2fd;
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #e3f2fd, stop:1 #bbdefb);
     border: 2px solid #1976d2;
-    border-radius: 20px;
+    border-radius: 22px;
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.15);
 }</string>
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_3">
              <property name="spacing">
-              <number>10</number>
+              <number>12</number>
              </property>
              <property name="leftMargin">
-              <number>10</number>
+              <number>12</number>
              </property>
              <property name="topMargin">
-              <number>5</number>
+              <number>8</number>
              </property>
              <property name="rightMargin">
-              <number>15</number>
+              <number>18</number>
              </property>
              <property name="bottomMargin">
-              <number>5</number>
+              <number>8</number>
              </property>
              <item>
               <widget class="QLabel" name="lblUserIcon">
                <property name="minimumSize">
                 <size>
-                 <width>24</width>
-                 <height>24</height>
+                 <width>28</width>
+                 <height>28</height>
                 </size>
                </property>
                <property name="maximumSize">
                 <size>
-                 <width>24</width>
-                 <height>24</height>
+                 <width>28</width>
+                 <height>28</height>
                 </size>
                </property>
                <property name="styleSheet">
                 <string notr="true">QLabel {
-    font-size: 18px;
+    font-size: 20px;
     background: transparent;
     border: none;
     qproperty-alignment: AlignCenter;
+    font-weight: bold;
 }</string>
                </property>
                <property name="text">
@@ -770,11 +846,12 @@ v1.0.0</string>
               <widget class="QLabel" name="lblUserName">
                <property name="styleSheet">
                 <string notr="true">QLabel {
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 700;
     color: #1565c0;
     background: transparent;
     border: none;
+    letter-spacing: 0.5px;
 }</string>
                </property>
                <property name="text">
@@ -795,23 +872,23 @@ v1.0.0</string>
     border: none;
     background: transparent;
 }
-QScrollArea > QWidget > QWidget {
+QScrollArea &gt; QWidget &gt; QWidget {
     background: transparent;
 }
 QScrollBar:vertical {
     border: none;
-    background: #f0f0f0;
-    width: 10px;
+    background: #f1f5f9;
+    width: 12px;
     margin: 0px;
-    border-radius: 5px;
+    border-radius: 6px;
 }
 QScrollBar::handle:vertical {
-    background: #c0c0c0;
-    border-radius: 5px;
-    min-height: 20px;
+    background: #cbd5e1;
+    border-radius: 6px;
+    min-height: 25px;
 }
 QScrollBar::handle:vertical:hover {
-    background: #a0a0a0;
+    background: #94a3b8;
 }
 QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
     border: none;
@@ -822,41 +899,42 @@ QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
           <bool>true</bool>
          </property>
          <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+          <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
          </property>
          <widget class="QWidget" name="scrollAreaWidgetContents">
           <property name="geometry">
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>1058</width>
-            <height>648</height>
+            <width>1074</width>
+            <height>812</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_4">
            <property name="spacing">
-            <number>20</number>
+            <number>25</number>
            </property>
            <property name="leftMargin">
-            <number>20</number>
+            <number>25</number>
            </property>
            <property name="topMargin">
-            <number>20</number>
+            <number>25</number>
            </property>
            <property name="rightMargin">
-            <number>20</number>
+            <number>25</number>
            </property>
            <property name="bottomMargin">
-            <number>20</number>
+            <number>25</number>
            </property>
            <item>
             <widget class="QLabel" name="lblQuickActions">
              <property name="styleSheet">
               <string notr="true">QLabel {
-    font-size: 20px;
-    font-weight: bold;
-    color: #37474f;
+    font-size: 22px;
+    font-weight: 800;
+    color: #1e293b;
     background: transparent;
+    letter-spacing: 0.5px;
 }</string>
              </property>
              <property name="text">
@@ -867,14 +945,14 @@ QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
            <item>
             <layout class="QGridLayout" name="gridLayout">
              <property name="spacing">
-              <number>15</number>
+              <number>20</number>
              </property>
              <item row="0" column="0">
               <widget class="QFrame" name="cardTotalAppointments">
                <property name="minimumSize">
                 <size>
-                 <width>220</width>
-                 <height>150</height>
+                 <width>230</width>
+                 <height>160</height>
                 </size>
                </property>
                <property name="maximumSize">
@@ -887,48 +965,51 @@ QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
                 <string notr="true">QFrame {
     background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
         stop:0 #42a5f5, stop:1 #1e88e5);
-    border-radius: 12px;
+    border-radius: 14px;
     border: none;
+    box-shadow: 0 4px 12px rgba(66, 165, 245, 0.3);
 }
 QFrame:hover {
-    margin: -1px;
+    box-shadow: 0 6px 20px rgba(66, 165, 245, 0.4);
+    transform: translateY(-2px);
 }</string>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_5">
                 <property name="spacing">
-                 <number>10</number>
+                 <number>12</number>
                 </property>
                 <property name="leftMargin">
-                 <number>15</number>
+                 <number>18</number>
                 </property>
                 <property name="topMargin">
-                 <number>15</number>
+                 <number>18</number>
                 </property>
                 <property name="rightMargin">
-                 <number>15</number>
+                 <number>18</number>
                 </property>
                 <property name="bottomMargin">
-                 <number>15</number>
+                 <number>18</number>
                 </property>
                 <item>
                  <widget class="QLabel" name="lblCardIcon1">
                   <property name="minimumSize">
                    <size>
                     <width>0</width>
-                    <height>40</height>
+                    <height>45</height>
                    </size>
                   </property>
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
-                    <height>40</height>
+                    <height>45</height>
                    </size>
                   </property>
                   <property name="styleSheet">
                    <string notr="true">QLabel {
-    font-size: 32px;
+    font-size: 36px;
     background: transparent;
     color: white;
+    qproperty-alignment: AlignLeft;
 }</string>
                   </property>
                   <property name="text">
@@ -940,10 +1021,11 @@ QFrame:hover {
                  <widget class="QLabel" name="lblCardTitle1">
                   <property name="styleSheet">
                    <string notr="true">QLabel {
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 15px;
+    font-weight: 700;
     color: rgba(255, 255, 255, 0.95);
     background: transparent;
+    letter-spacing: 0.5px;
 }</string>
                   </property>
                   <property name="text">
@@ -955,10 +1037,11 @@ QFrame:hover {
                  <widget class="QLabel" name="lblCardValue1">
                   <property name="styleSheet">
                    <string notr="true">QLabel {
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 28px;
+    font-weight: 800;
     color: white;
     background: transparent;
+    letter-spacing: 1px;
 }</string>
                   </property>
                   <property name="text">
@@ -973,8 +1056,8 @@ QFrame:hover {
               <widget class="QFrame" name="cardUpcoming">
                <property name="minimumSize">
                 <size>
-                 <width>220</width>
-                 <height>150</height>
+                 <width>230</width>
+                 <height>160</height>
                 </size>
                </property>
                <property name="maximumSize">
@@ -987,45 +1070,51 @@ QFrame:hover {
                 <string notr="true">QFrame {
     background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
         stop:0 #66bb6a, stop:1 #43a047);
-    border-radius: 12px;
+    border-radius: 14px;
     border: none;
+    box-shadow: 0 4px 12px rgba(102, 187, 106, 0.3);
+}
+QFrame:hover {
+    box-shadow: 0 6px 20px rgba(102, 187, 106, 0.4);
+    transform: translateY(-2px);
 }</string>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_6">
                 <property name="spacing">
-                 <number>10</number>
+                 <number>12</number>
                 </property>
                 <property name="leftMargin">
-                 <number>15</number>
+                 <number>18</number>
                 </property>
                 <property name="topMargin">
-                 <number>15</number>
+                 <number>18</number>
                 </property>
                 <property name="rightMargin">
-                 <number>15</number>
+                 <number>18</number>
                 </property>
                 <property name="bottomMargin">
-                 <number>15</number>
+                 <number>18</number>
                 </property>
                 <item>
                  <widget class="QLabel" name="lblCardIcon2">
                   <property name="minimumSize">
                    <size>
                     <width>0</width>
-                    <height>40</height>
+                    <height>45</height>
                    </size>
                   </property>
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
-                    <height>40</height>
+                    <height>45</height>
                    </size>
                   </property>
                   <property name="styleSheet">
                    <string notr="true">QLabel {
-    font-size: 32px;
+    font-size: 36px;
     background: transparent;
     color: white;
+    qproperty-alignment: AlignLeft;
 }</string>
                   </property>
                   <property name="text">
@@ -1037,10 +1126,11 @@ QFrame:hover {
                  <widget class="QLabel" name="lblCardTitle2">
                   <property name="styleSheet">
                    <string notr="true">QLabel {
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 15px;
+    font-weight: 700;
     color: rgba(255, 255, 255, 0.95);
     background: transparent;
+    letter-spacing: 0.5px;
 }</string>
                   </property>
                   <property name="text">
@@ -1052,10 +1142,11 @@ QFrame:hover {
                  <widget class="QLabel" name="lblCardValue2">
                   <property name="styleSheet">
                    <string notr="true">QLabel {
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 28px;
+    font-weight: 800;
     color: white;
     background: transparent;
+    letter-spacing: 1px;
 }</string>
                   </property>
                   <property name="text">
@@ -1070,8 +1161,8 @@ QFrame:hover {
               <widget class="QFrame" name="cardDoctors">
                <property name="minimumSize">
                 <size>
-                 <width>220</width>
-                 <height>150</height>
+                 <width>230</width>
+                 <height>160</height>
                 </size>
                </property>
                <property name="maximumSize">
@@ -1084,45 +1175,51 @@ QFrame:hover {
                 <string notr="true">QFrame {
     background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
         stop:0 #ab47bc, stop:1 #8e24aa);
-    border-radius: 12px;
+    border-radius: 14px;
     border: none;
+    box-shadow: 0 4px 12px rgba(171, 71, 188, 0.3);
+}
+QFrame:hover {
+    box-shadow: 0 6px 20px rgba(171, 71, 188, 0.4);
+    transform: translateY(-2px);
 }</string>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_7">
                 <property name="spacing">
-                 <number>10</number>
+                 <number>12</number>
                 </property>
                 <property name="leftMargin">
-                 <number>15</number>
+                 <number>18</number>
                 </property>
                 <property name="topMargin">
-                 <number>15</number>
+                 <number>18</number>
                 </property>
                 <property name="rightMargin">
-                 <number>15</number>
+                 <number>18</number>
                 </property>
                 <property name="bottomMargin">
-                 <number>15</number>
+                 <number>18</number>
                 </property>
                 <item>
                  <widget class="QLabel" name="lblCardIcon3">
                   <property name="minimumSize">
                    <size>
                     <width>0</width>
-                    <height>40</height>
+                    <height>45</height>
                    </size>
                   </property>
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
-                    <height>40</height>
+                    <height>45</height>
                    </size>
                   </property>
                   <property name="styleSheet">
                    <string notr="true">QLabel {
-    font-size: 32px;
+    font-size: 36px;
     background: transparent;
     color: white;
+    qproperty-alignment: AlignLeft;
 }</string>
                   </property>
                   <property name="text">
@@ -1134,10 +1231,11 @@ QFrame:hover {
                  <widget class="QLabel" name="lblCardTitle3">
                   <property name="styleSheet">
                    <string notr="true">QLabel {
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 15px;
+    font-weight: 700;
     color: rgba(255, 255, 255, 0.95);
     background: transparent;
+    letter-spacing: 0.5px;
 }</string>
                   </property>
                   <property name="text">
@@ -1149,10 +1247,11 @@ QFrame:hover {
                  <widget class="QLabel" name="lblCardValue3">
                   <property name="styleSheet">
                    <string notr="true">QLabel {
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 28px;
+    font-weight: 800;
     color: white;
     background: transparent;
+    letter-spacing: 1px;
 }</string>
                   </property>
                   <property name="text">
@@ -1167,8 +1266,8 @@ QFrame:hover {
               <widget class="QFrame" name="cardPending">
                <property name="minimumSize">
                 <size>
-                 <width>220</width>
-                 <height>150</height>
+                 <width>230</width>
+                 <height>160</height>
                 </size>
                </property>
                <property name="maximumSize">
@@ -1181,45 +1280,51 @@ QFrame:hover {
                 <string notr="true">QFrame {
     background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
         stop:0 #ff7043, stop:1 #f4511e);
-    border-radius: 12px;
+    border-radius: 14px;
     border: none;
+    box-shadow: 0 4px 12px rgba(255, 112, 67, 0.3);
+}
+QFrame:hover {
+    box-shadow: 0 6px 20px rgba(255, 112, 67, 0.4);
+    transform: translateY(-2px);
 }</string>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_8">
                 <property name="spacing">
-                 <number>10</number>
+                 <number>12</number>
                 </property>
                 <property name="leftMargin">
-                 <number>15</number>
+                 <number>18</number>
                 </property>
                 <property name="topMargin">
-                 <number>15</number>
+                 <number>18</number>
                 </property>
                 <property name="rightMargin">
-                 <number>15</number>
+                 <number>18</number>
                 </property>
                 <property name="bottomMargin">
-                 <number>15</number>
+                 <number>18</number>
                 </property>
                 <item>
                  <widget class="QLabel" name="lblCardIcon4">
                   <property name="minimumSize">
                    <size>
                     <width>0</width>
-                    <height>40</height>
+                    <height>45</height>
                    </size>
                   </property>
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
-                    <height>40</height>
+                    <height>45</height>
                    </size>
                   </property>
                   <property name="styleSheet">
                    <string notr="true">QLabel {
-    font-size: 32px;
+    font-size: 36px;
     background: transparent;
     color: white;
+    qproperty-alignment: AlignLeft;
 }</string>
                   </property>
                   <property name="text">
@@ -1231,10 +1336,11 @@ QFrame:hover {
                  <widget class="QLabel" name="lblCardTitle4">
                   <property name="styleSheet">
                    <string notr="true">QLabel {
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 15px;
+    font-weight: 700;
     color: rgba(255, 255, 255, 0.95);
     background: transparent;
+    letter-spacing: 0.5px;
 }</string>
                   </property>
                   <property name="text">
@@ -1246,10 +1352,11 @@ QFrame:hover {
                  <widget class="QLabel" name="lblCardValue4">
                   <property name="styleSheet">
                    <string notr="true">QLabel {
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 28px;
+    font-weight: 800;
     color: white;
     background: transparent;
+    letter-spacing: 1px;
 }</string>
                   </property>
                   <property name="text">
@@ -1263,13 +1370,68 @@ QFrame:hover {
             </layout>
            </item>
            <item>
+            <widget class="QGroupBox" name="groupBoxNextVisit">
+             <property name="title">
+              <string>Scheduled Next Visit</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_10">
+              <property name="spacing">
+               <number>15</number>
+              </property>
+              <property name="leftMargin">
+               <number>20</number>
+              </property>
+              <property name="topMargin">
+               <number>20</number>
+              </property>
+              <property name="rightMargin">
+               <number>20</number>
+              </property>
+              <property name="bottomMargin">
+               <number>20</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="lblNextVisitInfo">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>80</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+    font-size: 16px;
+    color: #64748b;
+    background: transparent;
+    qproperty-alignment: AlignCenter;
+    font-weight: 500;
+    line-height: 1.6;
+    padding: 20px;
+}</string>
+                </property>
+                <property name="text">
+                 <string>📅 Your next scheduled visit will appear here
+
+Your doctor will schedule follow-up appointments after consultations
+Check this section regularly for important medical follow-ups</string>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
             <widget class="QLabel" name="lblRecentActivity">
              <property name="styleSheet">
               <string notr="true">QLabel {
-    font-size: 20px;
-    font-weight: bold;
-    color: #37474f;
+    font-size: 22px;
+    font-weight: 800;
+    color: #1e293b;
     background: transparent;
+    letter-spacing: 0.5px;
 }</string>
              </property>
              <property name="text">
@@ -1282,14 +1444,15 @@ QFrame:hover {
              <property name="minimumSize">
               <size>
                <width>0</width>
-               <height>200</height>
+               <height>180</height>
               </size>
              </property>
              <property name="styleSheet">
               <string notr="true">QFrame {
     background-color: white;
-    border-radius: 12px;
-    border: 2px solid #e0e0e0;
+    border-radius: 14px;
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }</string>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -1313,17 +1476,18 @@ QFrame:hover {
                 <property name="minimumSize">
                  <size>
                   <width>0</width>
-                  <height>180</height>
+                  <height>160</height>
                  </size>
                 </property>
                 <property name="styleSheet">
                  <string notr="true">QLabel {
-    font-size: 16px;
-    color: #9e9e9e;
+    font-size: 17px;
+    color: #64748b;
     background: transparent;
     qproperty-alignment: AlignCenter;
-    font-style: italic;
-    line-height: 1.6;
+    font-weight: 500;
+    line-height: 1.8;
+    padding: 30px;
 }</string>
                 </property>
                 <property name="text">
@@ -1343,7 +1507,7 @@ Book appointments • View doctors • Check availability • Manage billing</st
            <item>
             <spacer name="verticalSpacer_4">
              <property name="orientation">
-              <enum>Qt::Vertical</enum>
+              <enum>Qt::Orientation::Vertical</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>

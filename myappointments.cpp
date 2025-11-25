@@ -98,14 +98,18 @@ void MyAppointments::loadAppointments()
     while (query.next()) {
         ui->tableAppointments->insertRow(row);
 
-        // Column 0: Appointment ID
-        ui->tableAppointments->setItem(row, 0, new QTableWidgetItem(query.value(0).toString()));
+        // Create each item with black text color
+        QTableWidgetItem *item0 = new QTableWidgetItem(query.value(0).toString());
+        item0->setForeground(Qt::black);
+        ui->tableAppointments->setItem(row, 0, item0);
 
-        // Column 1: Doctor Name
-        ui->tableAppointments->setItem(row, 1, new QTableWidgetItem(query.value(1).toString()));
+        QTableWidgetItem *item1 = new QTableWidgetItem(query.value(1).toString());
+        item1->setForeground(Qt::black);
+        ui->tableAppointments->setItem(row, 1, item1);
 
-        // Column 2: Date
-        ui->tableAppointments->setItem(row, 2, new QTableWidgetItem(query.value(2).toString()));
+        QTableWidgetItem *item2 = new QTableWidgetItem(query.value(2).toString());
+        item2->setForeground(Qt::black);
+        ui->tableAppointments->setItem(row, 2, item2);
 
         // Column 3: Time Slot (Convert to 12-hour format)
         QString startTime = query.value(3).toString();
@@ -113,13 +117,19 @@ void MyAppointments::loadAppointments()
         QTime start = QTime::fromString(startTime, "HH:mm");
         QTime end = QTime::fromString(endTime, "HH:mm");
         QString slot12hr = start.toString("h:mm AP") + " - " + end.toString("h:mm AP");
-        ui->tableAppointments->setItem(row, 3, new QTableWidgetItem(slot12hr));
+        QTableWidgetItem *item3 = new QTableWidgetItem(slot12hr);
+        item3->setForeground(Qt::black);
+        ui->tableAppointments->setItem(row, 3, item3);
 
         // Column 4: Status
-        ui->tableAppointments->setItem(row, 4, new QTableWidgetItem(query.value(5).toString()));
+        QTableWidgetItem *item4 = new QTableWidgetItem(query.value(5).toString());
+        item4->setForeground(Qt::black);
+        ui->tableAppointments->setItem(row, 4, item4);
 
         // Column 5: Payment
-        ui->tableAppointments->setItem(row, 5, new QTableWidgetItem(query.value(6).toString()));
+        QTableWidgetItem *item5 = new QTableWidgetItem(query.value(6).toString());
+        item5->setForeground(Qt::black);
+        ui->tableAppointments->setItem(row, 5, item5);
 
         row++;
     }
@@ -204,6 +214,13 @@ void MyAppointments::rescheduleAppointment()
     rescheduleDialog.setModal(true);
     rescheduleDialog.setFixedSize(450, 350);
 
+    // Set stylesheet for black text in dialog and dropdown
+    rescheduleDialog.setStyleSheet(
+        "QDialog { color: black; }"
+        "QComboBox { color: black; }"
+        "QComboBox QAbstractItemView { color: black; }"
+        );
+
     QVBoxLayout *layout = new QVBoxLayout(&rescheduleDialog);
     layout->setSpacing(15);
     layout->setContentsMargins(20, 20, 20, 20);
@@ -219,20 +236,24 @@ void MyAppointments::rescheduleAppointment()
             .arg(ui->tableAppointments->item(row, 3)->text())
         );
     lblInfo->setWordWrap(true);
-    lblInfo->setStyleSheet("padding: 10px; background-color: #e3f2fd; border-radius: 5px;");
+    lblInfo->setStyleSheet("padding: 10px; background-color: #e3f2fd; border-radius: 5px; color: black;");
 
     // New date selection
     QLabel *lblDate = new QLabel("<b>Select New Date:</b>");
+    lblDate->setStyleSheet("color: black;");
     QDateEdit *dateEdit = new QDateEdit(QDate::fromString(currentDateStr, "yyyy-MM-dd"));
     dateEdit->setMinimumDate(QDate::currentDate());
     dateEdit->setMaximumDate(QDate::currentDate().addMonths(3));
     dateEdit->setCalendarPopup(true);
     dateEdit->setDisplayFormat("yyyy-MM-dd");
+    dateEdit->setStyleSheet("color: black;");
 
     // New slot selection
     QLabel *lblSlot = new QLabel("<b>Select New Time Slot:</b>");
+    lblSlot->setStyleSheet("color: black;");
     QComboBox *slotCombo = new QComboBox();
     slotCombo->setMinimumHeight(35);
+    slotCombo->setStyleSheet("color: black;");
 
     // Function to load available slots
     auto loadAvailableSlots = [&](const QDate &date) {

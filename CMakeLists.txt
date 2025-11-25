@@ -47,6 +47,15 @@ set(PROJECT_SOURCES
     slotavailabilityviewer.cpp
     slotavailabilityviewer.h
     slotavailabilityviewer.ui
+    adminpanel.cpp
+    adminpanel.h
+    adminpanel.ui
+    doctorpanel.cpp
+    doctorpanel.h
+    doctorpanel.ui
+
+
+
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -61,6 +70,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         billing.h billing.cpp billing.ui
         aboutus.h aboutus.cpp aboutus.ui
         slotavailabilityviewer.h slotavailabilityviewer.cpp slotavailabilityviewer.ui
+
+        adminpanel.h adminpanel.cpp adminpanel.ui
+        doctorpanel.h doctorpanel.cpp doctorpanel.ui
 
     )
 else()

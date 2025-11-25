@@ -8,7 +8,7 @@
 #include <QMessageBox>
 #include <QTableWidgetItem>
 
-namespace Ui {
+namespace Ui{
 class MyAppointments;
 }
 
@@ -24,7 +24,7 @@ private slots:
     void loadAppointments();          // Load appointments from DB
     void refreshAppointments();       // Refresh button
     void cancelAppointment();         // Cancel selected appointment
-    void rescheduleAppointment();     // Reschedule selected appointment (NEW)
+    void rescheduleAppointment();     // Reschedule selected appointment
     void viewDetails();               // View appointment details
 
 private:
@@ -35,5 +35,4 @@ private:
     void setupTable();                // Setup columns & headers
     int fetchUserId();                // Get user id using username
 };
-
 #endif // MYAPPOINTMENTS_H

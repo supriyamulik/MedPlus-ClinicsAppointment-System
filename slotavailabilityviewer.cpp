@@ -7,6 +7,18 @@ SlotAvailabilityViewer::SlotAvailabilityViewer(QWidget *parent)
 {
     ui->setupUi(this);
 
+    // Set stylesheet for black text only
+    this->setStyleSheet(
+        "QDialog { background-color: white; color: black; }"
+        "QLabel { background-color: white; color: black; }"
+        "QComboBox { background-color: white; color: black; }"
+        "QComboBox QAbstractItemView { background-color: white; color: black; }"
+        "QDateEdit { background-color: white; color: black; }"
+        "QPushButton { background-color: #f0f0f0; color: black; border: 1px solid #ccc; }"
+        "QTableWidget { background-color: white; color: black; gridline-color: #d0d0d0; }"
+        "QHeaderView::section { background-color: #e0e0e0; color: black; }"
+        );
+
     // Setup database and table
     setupDatabase();
     setupTable();
@@ -153,22 +165,33 @@ void SlotAvailabilityViewer::populateAvailabilityTable(const QDate &date, int do
         int row = ui->tableSlotAvailability->rowCount();
         ui->tableSlotAvailability->insertRow(row);
 
-        ui->tableSlotAvailability->setItem(row, 0, new QTableWidgetItem(doctorName));
-        ui->tableSlotAvailability->setItem(row, 1, new QTableWidgetItem(specialization));
-        ui->tableSlotAvailability->setItem(row, 2, new QTableWidgetItem(
-                                                       startTime.toString("hh:mm AP") + " - " + endTime.toString("hh:mm AP")));
+        // Create table items with black text
+        QTableWidgetItem *doctorItem = new QTableWidgetItem(doctorName);
+        doctorItem->setForeground(Qt::black);
+        ui->tableSlotAvailability->setItem(row, 0, doctorItem);
+
+        QTableWidgetItem *specItem = new QTableWidgetItem(specialization);
+        specItem->setForeground(Qt::black);
+        ui->tableSlotAvailability->setItem(row, 1, specItem);
+
+        QTableWidgetItem *timeItem = new QTableWidgetItem(
+            startTime.toString("hh:mm AP") + " - " + endTime.toString("hh:mm AP"));
+        timeItem->setForeground(Qt::black);
+        ui->tableSlotAvailability->setItem(row, 2, timeItem);
 
         QTableWidgetItem *bookedItem = new QTableWidgetItem(QString::number(bookedCount));
         bookedItem->setTextAlignment(Qt::AlignCenter);
+        bookedItem->setForeground(Qt::black);
         ui->tableSlotAvailability->setItem(row, 3, bookedItem);
 
         QTableWidgetItem *availItem = new QTableWidgetItem(QString::number(available));
         availItem->setTextAlignment(Qt::AlignCenter);
+        availItem->setForeground(Qt::black);
         ui->tableSlotAvailability->setItem(row, 4, availItem);
 
         QTableWidgetItem *statusItem = new QTableWidgetItem(status);
         statusItem->setBackground(QBrush(statusColor));
-        statusItem->setForeground(QBrush(Qt::white));
+        statusItem->setForeground(QBrush(Qt::black));
         statusItem->setTextAlignment(Qt::AlignCenter);
         QFont boldFont = statusItem->font();
         boldFont.setBold(true);

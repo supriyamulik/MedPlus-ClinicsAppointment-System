@@ -6,6 +6,7 @@
 #include "myprofile.h"
 #include "billing.h"
 #include "aboutus.h"
+#include "mainwindow.h"
 #include "slotavailabilityviewer.h"
 #include <QMessageBox>
 #include <QSqlDatabase>
@@ -13,23 +14,28 @@
 #include <QSqlError>
 #include <QDateTime>
 
-Dashboard::Dashboard(QWidget *parent, const QString &username)
+Dashboard::Dashboard(QSqlDatabase db, QWidget *parent, const QString &username)
     : QMainWindow(parent)
     , ui(new Ui::Dashboard)
+    , m_db(db)
     , currentUsername(username)
-    , currentUserId(-1)  // Initialize to invalid
+    , currentUserId(-1)
 {
     ui->setupUi(this);
+
     dateTimeTimer = new QTimer(this);
     connect(dateTimeTimer, &QTimer::timeout, this, &Dashboard::updateDateTime);
-    updateDateTime();  // Immediately update
-    dateTimeTimer->start(60000);  // Update every minute
+    updateDateTime();
+    dateTimeTimer->start(60000);
 
     // Fetch and store the user ID on startup
     currentUserId = fetchUserId();
     if (currentUserId == -1) {
         QMessageBox::warning(this, "Error", "Failed to retrieve user ID. Some features may not work.");
     }
+
+    // Load next visit information
+    loadNextVisitInfo();
 
     // Connect buttons
     connect(ui->btnBookAppointment, &QPushButton::clicked, this, &Dashboard::openBookAppointment);
@@ -41,29 +47,29 @@ Dashboard::Dashboard(QWidget *parent, const QString &username)
     connect(ui->btnExit, &QPushButton::clicked, this, &QWidget::close);
     connect(ui->btnViewSlotAvailability, &QPushButton::clicked,
             this, &Dashboard::openSlotAvailability);
+    connect(ui->btnLogout, &QPushButton::clicked, this, &Dashboard::on_btnLogout_clicked);
 }
 
 Dashboard::~Dashboard()
 {
     delete ui;
 }
+
 void Dashboard::updateDateTime()
 {
     QDateTime currentDateTime = QDateTime::currentDateTime();
     QString formattedDate = "Today: " + currentDateTime.toString("dddd, MMMM dd, yyyy");
     ui->lblDateTime->setText(formattedDate);
 }
+
 int Dashboard::fetchUserId()
 {
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("C:/Users/Supriya/ClinicsAppointment.db");
-
-    if (!db.open()) {
-        QMessageBox::critical(this, "Database Error", db.lastError().text());
+    if (!m_db.isOpen()) {
+        QMessageBox::critical(this, "Database Error", m_db.lastError().text());
         return -1;
     }
 
-    QSqlQuery query(db);
+    QSqlQuery query(m_db);
     query.prepare("SELECT id FROM users WHERE username = :username");
     query.bindValue(":username", currentUsername);
 
@@ -81,7 +87,6 @@ void Dashboard::openBookAppointment()
         return;
     }
 
-    // Pass the currentUserId to BookAppointment
     BookAppointment bookAppointmentDialog(currentUserId, this);
     bookAppointmentDialog.exec();
 }
@@ -107,9 +112,7 @@ void Dashboard::openMyProfile()
         return;
     }
 
-    // Simple - pass user ID directly as string
     QString userIdStr = QString::number(currentUserId);
-
     MyProfile *profileDialog = new MyProfile(userIdStr, this);
     profileDialog->setModal(true);
     profileDialog->exec();
@@ -123,14 +126,13 @@ void Dashboard::openBilling()
         return;
     }
 
-    // Pass user ID as string directly
     QString userIdStr = QString::number(currentUserId);
-
     Billing *billingDialog = new Billing(userIdStr, this);
     billingDialog->setModal(true);
     billingDialog->exec();
     delete billingDialog;
 }
+
 void Dashboard::openSlotAvailability()
 {
     SlotAvailabilityViewer *viewer = new SlotAvailabilityViewer(this);
@@ -145,4 +147,71 @@ void Dashboard::openAboutUs()
     aboutDialog->setModal(true);
     aboutDialog->exec();
     delete aboutDialog;
+}
+void Dashboard::on_btnLogout_clicked()
+{
+    int result = QMessageBox::question(this, "Logout",
+                                       "Are you sure you want to logout?",
+                                       QMessageBox::Yes | QMessageBox::No);
+
+    if (result == QMessageBox::Yes) {
+        // Close the current dashboard
+        this->close();
+
+        // Show the main window (login window)
+        MainWindow *mainWindow = new MainWindow();
+        mainWindow->show();
+    }
+}
+void Dashboard::loadNextVisitInfo()
+{
+    if (currentUserId == -1) return;
+
+    QSqlQuery query(m_db);
+    query.prepare(R"(
+        SELECT nv.next_visit_date, nv.notes, d.name, d.specialization
+        FROM next_visits nv
+        JOIN doctors d ON nv.doctor_id = d.id
+        WHERE nv.patient_id = :patient_id
+        AND nv.next_visit_date >= date('now')
+        ORDER BY nv.next_visit_date ASC
+        LIMIT 1
+    )");
+
+    query.bindValue(":patient_id", currentUserId);
+
+    if (query.exec() && query.next()) {
+        QDate nextVisitDate = query.value(0).toDate();
+        QString notes = query.value(1).toString();
+        QString doctorName = query.value(2).toString();
+        QString specialization = query.value(3).toString();
+
+        QString nextVisitInfo = QString(
+                                    "🩺 Your Next Scheduled Visit\n\n"
+                                    "Date: %1\n"
+                                    "Doctor: Dr. %2\n"
+                                    "Specialization: %3\n"
+                                    "Notes: %4"
+                                    ).arg(nextVisitDate.toString("dddd, MMMM d, yyyy"))
+                                    .arg(doctorName)
+                                    .arg(specialization)
+                                    .arg(notes.isEmpty() ? "No additional notes" : notes);
+
+        ui->lblNextVisitInfo->setText(nextVisitInfo);
+        ui->lblNextVisitInfo->setStyleSheet(
+            "font-size: 14px; color: #15803d; background: transparent; "
+            "qproperty-alignment: AlignCenter; font-weight: 500; line-height: 1.6; padding: 15px;"
+            );
+    } else {
+        // No upcoming visits
+        ui->lblNextVisitInfo->setText(
+            "📅 Your next scheduled visit will appear here\n\n"
+            "Your doctor will schedule follow-up appointments after consultations\n"
+            "Check this section regularly for important medical follow-ups"
+            );
+        ui->lblNextVisitInfo->setStyleSheet(
+            "font-size: 16px; color: #64748b; background: transparent; "
+            "qproperty-alignment: AlignCenter; font-weight: 500; line-height: 1.6; padding: 20px;"
+            );
+    }
 }

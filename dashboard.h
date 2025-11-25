@@ -3,11 +3,8 @@
 
 #include <QMainWindow>
 #include <QSqlDatabase>
-#include <QSqlQuery>
-#include <QSqlError>
-#include <QMessageBox>
 #include <QTimer>
-#include "slotavailabilityviewer.h"
+// ... existing includes ...
 
 namespace Ui {
 class Dashboard;
@@ -18,26 +15,32 @@ class Dashboard : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit Dashboard(QWidget *parent = nullptr, const QString &username = "");
+    explicit Dashboard(QSqlDatabase db, QWidget *parent = nullptr, const QString &username = "");
     ~Dashboard();
 
 private slots:
+    // ... existing slots ...
     void openBookAppointment();
     void openMyAppointments();
     void openViewDoctors();
     void openMyProfile();
     void openBilling();
     void openAboutUs();
-    void updateDateTime();
-    void openSlotAvailability();  // <-- Moved inside the class correctly
+    void openSlotAvailability();
+    void on_btnLogout_clicked();
 
 private:
     Ui::Dashboard *ui;
+    QSqlDatabase m_db;
     QString currentUsername;
     int currentUserId;
     QTimer *dateTimeTimer;
 
+    void updateDateTime();
     int fetchUserId();
+
+    // ADD THIS NEW FUNCTION:
+    void loadNextVisitInfo();  // Loads next visit data for patient
 };
 
 #endif // DASHBOARD_H
