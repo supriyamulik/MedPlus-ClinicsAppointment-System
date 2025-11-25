@@ -1,0 +1,126 @@
+# ===========================
+# Qt Project Gitignore
+# ===========================
+
+# Qt User Settings
+*.pro.user
+*.pro.user.*
+*.qbs.user
+*.qbs.user.*
+
+# Qt Auto-save
+*.autosave
+
+# Qt MOC (Meta-Object Compiler)
+moc_*.cpp
+moc_*.h
+
+# Qt UI Compiler
+ui_*.h
+
+# Qt Resource Compiler
+qrc_*.cpp
+
+# Qt QML
+*.qmlc
+*.jsc
+
+# Build Files
+Makefile
+Makefile.*
+*.qmake.cache
+.qmake.stash
+
+# Build Directories
+build/
+build-*/
+debug/
+release/
+Debug/
+Release/
+*-build-*/
+
+# Object Files
+*.o
+*.obj
+*.lo
+*.slo
+
+# Shared Objects
+*.so
+*.so.*
+*.dylib
+*.dll
+
+# Static Libraries
+*.a
+*.lib
+*.lai
+*.la
+
+# Executables
+*.exe
+*.exe.*
+*.out
+*.app
+
+# IDE Specific
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS Specific
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Database Files (if you want to exclude)
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.db-wal
+*.db-shm
+
+# OR keep database but exclude journals
+# Comment above and use this:
+# *.db-journal
+# *.db-wal
+# *.db-shm
+
+# Backup Files
+*~
+*.bak
+*.swp
+*.swo
+*.orig
+
+# Log Files
+*.log
+
+# Temporary Files
+*.tmp
+*.temp
+
+# Documentation Build
+docs/_build/
+docs/.doctrees/
+
+# Qt Creator Project Files (keep these, but ignore user settings)
+# *.pro       # DON'T ignore - this is your project file!
+# *.pri       # DON'T ignore - project include file
+
+# Generated Files
+GeneratedFiles/
+generated/
+
+# Coverage Reports
+*.gcov
+*.gcda
+*.gcno

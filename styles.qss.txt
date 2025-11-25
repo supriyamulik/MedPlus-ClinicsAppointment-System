@@ -1,0 +1,283 @@
+/* ===== MEDPLUS UNIFIED THEME ===== */
+
+/* ===== COLOR PALETTE ===== */
+* {
+    --primary: #1976d2;
+    --primary-dark: #1565c0;
+    --primary-light: #42a5f5;
+    --secondary: #ff9800;
+    --success: #4caf50;
+    --warning: #ff9800;
+    --error: #f44336;
+    --background: #f5f7fa;
+    --surface: #ffffff;
+    --text-primary: #2c3e50;
+    --text-secondary: #546e7a;
+    --border: #e0e0e0;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* ===== BASE STYLES ===== */
+QMainWindow, QDialog {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #f5f7fa, stop:1 #c3cfe2);
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* ===== HEADERS & TITLES ===== */
+QLabel[objectName*="lblTitle"], 
+QLabel[objectName*="label"] {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #1976d2, stop:0.5 #42a5f5, stop:1 #64b5f6);
+    padding: 20px 30px;
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    letter-spacing: 1px;
+    qproperty-alignment: AlignCenter;
+}
+
+/* ===== FRAMES & CONTAINERS ===== */
+QFrame[objectName*="frameContent"],
+QFrame[objectName*="frameForm"],
+QFrame[objectName*="frameFilters"],
+QFrame[objectName*="frameStats"] {
+    background-color: white;
+    border-radius: 12px;
+    border: 2px solid #e0e0e0;
+    padding: 5px;
+}
+
+/* ===== BUTTONS ===== */
+QPushButton {
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+        stop:0 #42a5f5, stop:1 #1976d2);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    min-height: 40px;
+}
+
+QPushButton:hover {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+        stop:0 #1976d2, stop:1 #1565c0);
+}
+
+QPushButton:pressed {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+        stop:0 #1565c0, stop:1 #0d47a1);
+}
+
+/* Secondary Buttons */
+QPushButton[objectName*="btnCancel"],
+QPushButton[objectName*="btnBack"] {
+    color: #1976d2;
+    background: transparent;
+    border: 2px solid #1976d2;
+}
+
+QPushButton[objectName*="btnCancel"]:hover,
+QPushButton[objectName*="btnBack"]:hover {
+    background-color: #e3f2fd;
+    border-color: #1565c0;
+}
+
+/* Danger Buttons */
+QPushButton[objectName*="btnCancelAppointment"],
+QPushButton[objectName*="btnLogout"] {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+        stop:0 #ff5252, stop:1 #f44336);
+}
+
+QPushButton[objectName*="btnCancelAppointment"]:hover,
+QPushButton[objectName*="btnLogout"]:hover {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+        stop:0 #f44336, stop:1 #d32f2f);
+}
+
+/* ===== FORM CONTROLS ===== */
+QComboBox, QDateEdit, QLineEdit, QTextEdit {
+    background-color: white;
+    border: 2px solid #1976d2;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #2c3e50;
+    selection-background-color: #42a5f5;
+    selection-color: white;
+}
+
+QComboBox:hover, QDateEdit:hover, QLineEdit:hover, QTextEdit:hover {
+    border: 2px solid #1565c0;
+    background-color: #f5f9ff;
+}
+
+QComboBox:focus, QDateEdit:focus, QLineEdit:focus, QTextEdit:focus {
+    border: 2px solid #1565c0;
+    background-color: white;
+}
+
+/* ===== DROPDOWN SPECIFIC FIXES ===== */
+QComboBox {
+    color: #2c3e50;
+}
+
+QComboBox::drop-down {
+    border-left: 2px solid #1976d2;
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+        stop:0 #42a5f5, stop:1 #1976d2);
+    width: 30px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+QComboBox::down-arrow {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid white;
+    margin-right: 8px;
+}
+
+/* DROPDOWN POPUP - CRITICAL FIX FOR WHITE TEXT ISSUE */
+QComboBox QAbstractItemView {
+    background-color: white;
+    border: 2px solid #1976d2;
+    border-radius: 8px;
+    padding: 4px;
+    outline: 0;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+QComboBox QAbstractItemView::item {
+    padding: 8px 12px;
+    border-bottom: 1px solid #e0e0e0;
+    color: #2c3e50;
+}
+
+QComboBox QAbstractItemView::item:selected {
+    background-color: #42a5f5;
+    color: white;
+}
+
+QComboBox QAbstractItemView::item:hover {
+    background-color: #e3f2fd;
+    color: #2c3e50;
+}
+
+/* ===== TAB WIDGETS ===== */
+QTabWidget::pane {
+    border: 1px solid #e0e0e0;
+    background-color: white;
+    border-radius: 8px;
+}
+
+QTabBar::tab {
+    background-color: #e0e0e0;
+    padding: 10px 20px;
+    margin-right: 2px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    color: #546e7a;
+    font-weight: 600;
+}
+
+QTabBar::tab:selected {
+    background-color: white;
+    border-bottom: 3px solid #1976d2;
+    color: #1976d2;
+}
+
+QTabBar::tab:hover {
+    background-color: #f0f0f0;
+}
+
+/* ===== TABLES ===== */
+QTableWidget {
+    background-color: white;
+    alternate-background-color: #f8fafc;
+    gridline-color: #e0e0e0;
+    selection-background-color: #42a5f5;
+    selection-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+QTableWidget::item {
+    padding: 8px;
+    border-bottom: 1px solid #f0f0f0;
+    color: #2c3e50;
+}
+
+QTableWidget::item:selected {
+    background-color: #1976d2;
+    color: white;
+}
+
+QHeaderView::section {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+        stop:0 #1976d2, stop:1 #1565c0);
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 10px;
+    border: none;
+}
+
+/* ===== STATS CARDS ===== */
+QFrame[objectName*="cardDoctors"] {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #42a5f5, stop:1 #1e88e5);
+    border-radius: 10px;
+    padding: 15px;
+    color: white;
+}
+
+QFrame[objectName*="cardPatients"] {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #66bb6a, stop:1 #43a047);
+    border-radius: 10px;
+    padding: 15px;
+    color: white;
+}
+
+QFrame[objectName*="cardAppointments"] {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #ab47bc, stop:1 #8e24aa);
+    border-radius: 10px;
+    padding: 15px;
+    color: white;
+}
+
+QFrame[objectName*="cardRevenue"] {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #ff7043, stop:1 #f4511e);
+    border-radius: 10px;
+    padding: 15px;
+    color: white;
+}
+
+/* ===== DECORATIVE ELEMENTS ===== */
+QFrame[objectName*="frameCircle"] {
+    background: qradialgradient(cx:0.5, cy:0.5, radius:1, fx:0.5, fy:0.5, 
+        stop:0 rgba(25, 118, 210, 0.15), stop:1 transparent);
+    border-radius: 150px;
+    border: none;
+}
+
+/* ===== STATUS LABELS ===== */
+QLabel {
+    color: #2c3e50;
+    background: transparent;
+}
+
+QLabel[objectName*="lblSubtitle"],
+QLabel[objectName*="lblDescription"] {
+    color: #546e7a;
+    font-size: 14px;
+    font-weight: 500;
+}

@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+<class>SlotAvailabilityViewer</class>
+<widget class="QDialog" name="SlotAvailabilityViewer">  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Slot Availability</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+        stop:0 #e8f5e9, stop:1 #ffffff);
+}</string>
+  </property>
+
+  <!-- Header -->
+  <widget class="QFrame" name="frameHeader">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1200</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QFrame {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #43a047, stop:1 #66bb6a);
+    border: none;
+}</string>
+   </property>
+
+   <widget class="QLabel" name="lblTitle">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>20</y>
+      <width>1100</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+    background: transparent;
+    qproperty-alignment: AlignCenter;
+}</string>
+    </property>
+    <property name="text">
+     <string>🩺 Doctor Slot Availability</string>
+    </property>
+   </widget>
+  </widget>
+
+  <!-- Filter Section -->
+  <widget class="QFrame" name="frameFilters">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>130</y>
+     <width>1100</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QFrame {
+    background-color: white;
+    border-radius: 12px;
+    border: 2px solid #e0e0e0;
+}</string>
+   </property>
+
+   <widget class="QLabel" name="lblSelectDate">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>25</y>
+      <width>100</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+    font-size: 15px;
+    font-weight: 600;
+    color: #37474f;
+    background: transparent;
+}</string>
+    </property>
+    <property name="text">
+     <string>Select Date:</string>
+    </property>
+   </widget>
+
+   <widget class="QDateEdit" name="dateSelect">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>20</y>
+      <width>200</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QDateEdit {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #fafafa;
+    color: #212121;
+}
+QDateEdit:hover {
+    border: 2px solid #43a047;
+}
+QDateEdit::drop-down {
+    border: none;
+    width: 30px;
+    background: #43a047;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+QDateEdit::down-arrow {
+    image: none;
+    border: 4px solid transparent;
+    border-top: 4px solid white;
+    margin-right: 12px;
+}</string>
+    </property>
+    <property name="calendarPopup">
+     <bool>true</bool>
+    </property>
+   </widget>
+
+   <widget class="QLabel" name="lblFilterDoctor">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>25</y>
+      <width>100</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+    font-size: 15px;
+    font-weight: 600;
+    color: #37474f;
+    background: transparent;
+}</string>
+    </property>
+    <property name="text">
+     <string>Filter Doctor:</string>
+    </property>
+   </widget>
+
+   <widget class="QComboBox" name="comboFilterDoctor">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>20</y>
+      <width>300</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QComboBox {
+    background-color: #fafafa;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #212121;
+}
+QComboBox:hover {
+    border: 2px solid #43a047;
+}
+QComboBox::drop-down {
+    border: none;
+    width: 30px;
+    background: #43a047;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+QComboBox::down-arrow {
+    image: none;
+    border: 4px solid transparent;
+    border-top: 4px solid white;
+    margin-right: 12px;
+}</string>
+    </property>
+   </widget>
+
+   <widget class="QPushButton" name="btnSearch">
+    <property name="geometry">
+     <rect>
+      <x>810</x>
+      <y>20</y>
+      <width>130</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    background-color: #43a047;
+    border: none;
+    border-radius: 8px;
+}
+QPushButton:hover {
+    background-color: #388e3c;
+}
+QPushButton:pressed {
+    background-color: #2e7d32;
+}</string>
+    </property>
+    <property name="text">
+     <string>🔍 Search</string>
+    </property>
+   </widget>
+
+   <widget class="QPushButton" name="btnRefresh">
+    <property name="geometry">
+     <rect>
+      <x>960</x>
+      <y>20</y>
+      <width>130</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    background-color: #1976d2;
+    border: none;
+    border-radius: 8px;
+}
+QPushButton:hover {
+    background-color: #1565c0;
+}
+QPushButton:pressed {
+    background-color: #0d47a1;
+}</string>
+    </property>
+    <property name="text">
+     <string>🔄 Refresh</string>
+    </property>
+   </widget>
+  </widget>
+
+  <!-- Availability Table -->
+  <widget class="QTableWidget" name="tableSlotAvailability">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>230</y>
+     <width>1100</width>
+     <height>480</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QTableWidget {
+    background-color: #ffffff;
+    alternate-background-color: #f1f8e9;
+    gridline-color: #c5e1a5;
+    selection-background-color: #81c784;
+    selection-color: white;
+    border: 2px solid #43a047;
+    border-radius: 10px;
+    font-size: 14px;
+}
+QTableWidget::item {
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+QTableWidget::item:selected {
+    background-color: #66bb6a;
+    color: white;
+}
+QHeaderView::section {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+        stop:0 #43a047, stop:1 #66bb6a);
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 10px;
+    border: none;
+    border-right: 1px solid #2e7d32;
+}
+QHeaderView::section:first {
+    border-top-left-radius: 8px;
+}
+QHeaderView::section:last {
+    border-top-right-radius: 8px;
+    border-right: none;
+}
+QScrollBar:vertical {
+    background: #f5f5f5;
+    width: 12px;
+    border-radius: 6px;
+}
+QScrollBar::handle:vertical {
+    background: #81c784;
+    min-height: 30px;
+    border-radius: 6px;
+}
+QScrollBar::handle:vertical:hover {
+    background: #66bb6a;
+}</string>
+   </property>
+   <property name="alternatingRowColors">
+    <bool>true</bool>
+   </property>
+   <property name="selectionBehavior">
+    <enum>QAbstractItemView::SelectRows</enum>
+   </property>
+   <property name="showGrid">
+    <bool>true</bool>
+   </property>
+   <property name="columnCount">
+    <number>6</number>
+   </property>
+   <column>
+    <property name="text">
+     <string>Doctor</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Specialization</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Time Slot</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Booked</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Available</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Status</string>
+    </property>
+   </column>
+  </widget>
+
+  <!-- Legend -->
+  <widget class="QFrame" name="frameLegend">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>720</y>
+     <width>600</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QFrame {
+    background: transparent;
+    border: none;
+}</string>
+   </property>
+
+   <widget class="QLabel" name="lblLegendAvailable">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>10</y>
+      <width>180</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+    font-size: 13px;
+    color: white;
+    background-color: #4caf50;
+    border-radius: 6px;
+    padding: 5px 10px;
+    qproperty-alignment: AlignCenter;
+}</string>
+    </property>
+    <property name="text">
+     <string>✓ Available (0-1/2)</string>
+    </property>
+   </widget>
+
+   <widget class="QLabel" name="lblLegendFull">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>10</y>
+      <width>180</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+    font-size: 13px;
+    color: white;
+    background-color: #f44336;
+    border-radius: 6px;
+    padding: 5px 10px;
+    qproperty-alignment: AlignCenter;
+}</string>
+    </property>
+    <property name="text">
+     <string>✗ Full (2/2)</string>
+    </property>
+   </widget>
+
+   <widget class="QLabel" name="lblLegendPast">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>10</y>
+      <width>180</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+    font-size: 13px;
+    color: white;
+    background-color: #9e9e9e;
+    border-radius: 6px;
+    padding: 5px 10px;
+    qproperty-alignment: AlignCenter;
+}</string>
+    </property>
+    <property name="text">
+     <string>⊗ Past Time</string>
+    </property>
+   </widget>
+  </widget>
+
+  <!-- Close Button -->
+  <widget class="QPushButton" name="btnClose">
+   <property name="geometry">
+    <rect>
+     <x>970</x>
+     <y>720</y>
+     <width>180</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #78909c;
+    border: none;
+    border-radius: 10px;
+}
+QPushButton:hover {
+    background-color: #546e7a;
+}
+QPushButton:pressed {
+    background-color: #37474f;
+}</string>
+   </property>
+   <property name="text">
+    <string>← Close</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

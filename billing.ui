@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Billing</class>
+ <widget class="QDialog" name="Billing">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1100</width>
+    <height>750</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MedPlus - Billing and Payments</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+        stop:0 #e3f2fd, stop:1 #ffffff);
+    border-radius: 15px;
+}</string>
+  </property>
+  <widget class="QFrame" name="frameCircle1">
+   <property name="geometry">
+    <rect>
+     <x>-80</x>
+     <y>-80</y>
+     <width>300</width>
+     <height>300</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QFrame {
+    background: qradialgradient(cx:0.5, cy:0.5, radius:1,
+        fx:0.5, fy:0.5, stop:0 rgba(25, 118, 210, 0.15), stop:1 transparent);
+    border-radius: 150px;
+    border: none;
+}</string>
+   </property>
+  </widget>
+  <widget class="QFrame" name="frameCircle2">
+   <property name="geometry">
+    <rect>
+     <x>850</x>
+     <y>500</y>
+     <width>350</width>
+     <height>350</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QFrame {
+    background: qradialgradient(cx:0.5, cy:0.5, radius:1,
+        fx:0.5, fy:0.5, stop:0 rgba(66, 165, 245, 0.15), stop:1 transparent);
+    border-radius: 175px;
+    border: none;
+}</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblTitle">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>30</y>
+     <width>800</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #1976d2, stop:0.5 #42a5f5, stop:1 #64b5f6);
+    padding: 20px 30px;
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    letter-spacing: 1px;
+    qproperty-alignment: AlignCenter;
+}</string>
+   </property>
+   <property name="text">
+    <string>💳 Billing and Payments</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblSubtitle">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>120</y>
+     <width>800</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+    font-size: 16px;
+    color: #37474f;
+    background: transparent;
+    qproperty-alignment: AlignCenter;
+    font-weight: 500;
+}</string>
+   </property>
+   <property name="text">
+    <string>View your payment history and manage invoices</string>
+   </property>
+  </widget>
+  <widget class="QFrame" name="frameSummary">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>170</y>
+     <width>800</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QFrame {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #66bb6a, stop:1 #43a047);
+    border-radius: 15px;
+    border: none;
+}</string>
+   </property>
+   <widget class="QLabel" name="lblTotalSpentLabel">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>20</y>
+      <width>300</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    background: transparent;
+}</string>
+    </property>
+    <property name="text">
+     <string>Total Amount Spent</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblTotalSpent">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>50</y>
+      <width>300</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    background: transparent;
+}</string>
+    </property>
+    <property name="text">
+     <string>₹ 0.00</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblTotalBillsLabel">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>20</y>
+      <width>300</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    background: transparent;
+}</string>
+    </property>
+    <property name="text">
+     <string>Total Bills</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblTotalBills">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>50</y>
+      <width>300</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    background: transparent;
+}</string>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QScrollArea" name="scrollArea">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>290</y>
+     <width>800</width>
+     <height>360</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QScrollArea {
+    background-color: transparent;
+    border: none;
+}</string>
+   </property>
+   <property name="widgetResizable">
+    <bool>true</bool>
+   </property>
+   <widget class="QWidget" name="scrollAreaWidgetContents">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>800</width>
+      <height>360</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget {
+    background-color: transparent;
+}</string>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="spacing">
+      <number>15</number>
+     </property>
+     <property name="leftMargin">
+      <number>10</number>
+     </property>
+     <property name="topMargin">
+      <number>10</number>
+     </property>
+     <property name="rightMargin">
+      <number>10</number>
+     </property>
+     <property name="bottomMargin">
+      <number>10</number>
+     </property>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="btnBack">
+   <property name="geometry">
+    <rect>
+     <x>439</x>
+     <y>670</y>
+     <width>211</width>
+     <height>55</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #1976d2, stop:1 #42a5f5);
+    border: none;
+    border-radius: 12px;
+    padding: 12px 24px;
+}
+
+QPushButton:hover {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #1565c0, stop:1 #1976d2);
+}
+
+QPushButton:pressed {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #0d47a1, stop:1 #1565c0);
+}</string>
+   </property>
+   <property name="text">
+    <string>← Back to Dashboard</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
